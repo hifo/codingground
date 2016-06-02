@@ -1,24 +1,25 @@
-$exit = 0;
+use strict;
 
-%characters = (fang => ["fighter", "canid", "quadraped"],
-	       joey => ["canid", "quadraped"],
-	       bridget => ["intelligent", "time magic"],
-	       tyaxha => ["intelligent", "fighter"],
-	       dani => ["time magic"]
+my $exit = 0;
+my $first = 1;
+
+my %characters = ( catherine => ["parent", "quiet", "food", "magic"],
+                julia => ["parent", "magic"],
+                
         );
         
-%commands = (0 => "0. Exit Program \r\n",
-	     1 => "1. Get all characters \r\n",
-	     2 => "2. Get character traits \r\n",
-	     3 => "3. Get all possible traits (TODO) \r\n",
-	     4 => "4. Get the shared traits for any given characters (TODO) \r\n",
-	     5 => "5. Get all characters with a given trait (TODO) \r\n"
+my @commands = ("0. Exit Program \r\n",
+	        "1. Get all characters \r\n",
+    	     "2. Get character traits \r\n",
+    	     "3. Get all possible traits (TODO) \r\n",
+	        "4. Get the shared traits for any given characters (TODO) \r\n",
+	        "5. Get all characters with a given trait (TODO) \r\n"
             );
             
-@names = keys %characters;
 
 sub get_names{
     #gets all the character names
+    my @names = keys %characters;
     foreach(@names){
         print "$_\r\n";
     }
@@ -29,7 +30,7 @@ sub get_char_traits{
     #gets all the traits for a given character
     print "Which character?\r\n";
     print ": ";
-    $char = <>;
+    my $char = <>;
     chomp($char);
     $char = lc $char;
     print "Printing traits for $char\r\n";
@@ -50,13 +51,19 @@ sub get_shared_traits{
 }
 
 while(!$exit){
+    if($first){
+        $first = 0;   
+    }
+    else{
+        print "Press any key to continue";
+        my $press = <>;
+    }
     print "The following commands are available\r\n";
-    @commandnames = keys %commands;
-    for $command (@commandnames){ 
-	print $commands{$command};
+    foreach(@commands){
+        print "$_";    
     }
     print "Select a command to execute by entering it's number: ";
-    $command = <>;
+    my $command = <>;
     chomp($command);
     if($command == 1){
 	get_names();
