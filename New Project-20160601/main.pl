@@ -1,6 +1,3 @@
-#
-# Hello World Program in Perl
-#
 $exit = 0;
 
 %characters = (fang => ["fighter", "canid", "quadraped"],
@@ -12,7 +9,10 @@ $exit = 0;
         
 %commands = (0 => "0. Exit Program \r\n",
 	     1 => "1. Get all characters \r\n",
-	     2 => "2. Get character traits \r\n"
+	     2 => "2. Get character traits \r\n",
+	     3 => "3. Get all possible traits (TODO) \r\n",
+	     4 => "4. Get the shared traits for any given characters (TODO) \r\n",
+	     5 => "5. Get all characters with a given trait (TODO) \r\n"
             );
             
 @names = keys %characters;
