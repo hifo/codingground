@@ -3,15 +3,20 @@ use strict;
 my $exit = 0;
 my $first = 1;
 
+my @traits = ("parent", "comedy", "time", "nature", "quiet", "subserviant", "animal", "combat", "intelligence", "food", "young", "lust", "relaxed", "religious", "magic", "stubborn");
+
 my %characters = ( catherine => ["parent", "quiet", "food", "magic"],
                 julia => ["parent", "magic"],
+                red_herring => ["comedy", "nature", "animal"],
+                xoracam => ["nature", "quiet", "subserviant", "combat", "intelligence"],
+                fang => ["comedy", "nature", "animal", "combat", "young", "lust", "relaxed"]
                 
         );
         
 my @commands = ("0. Exit Program \r\n",
 	        "1. Get all characters \r\n",
     	     "2. Get character traits \r\n",
-    	     "3. Get all possible traits (TODO) \r\n",
+    	     "3. Get all possible traits \r\n",
 	        "4. Get the shared traits for any given characters (TODO) \r\n",
 	        "5. Get all characters with a given trait (TODO) \r\n"
             );
@@ -40,6 +45,9 @@ sub get_char_traits{
 
 sub get_all_traits{
     #gets all available character traits
+    foreach(@traits){
+        print "$_\r\n";   
+    }
 }
 
 sub get_characters_with_trait{
@@ -66,12 +74,15 @@ while(!$exit){
     my $command = <>;
     chomp($command);
     if($command == 1){
-	get_names();
+	    get_names();
     }
     elsif($command == 0){
-	$exit = 1;
+	    $exit = 1;
     }
     elsif($command == 2){
-	get_char_traits();
+	    get_char_traits();
+    }
+    elsif($command == 3){
+        get_all_traits();
     }
 }
