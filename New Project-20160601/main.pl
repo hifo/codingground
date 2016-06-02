@@ -18,6 +18,7 @@ $exit = 0;
 @names = keys %characters;
 
 sub get_names{
+    #gets all the character names
     foreach(@names){
         print "$_\r\n";
     }
@@ -25,6 +26,7 @@ sub get_names{
 }   
 
 sub get_char_traits{
+    #gets all the traits for a given character
     print "Which character?\r\n";
     print ": ";
     $char = <>;
@@ -33,6 +35,18 @@ sub get_char_traits{
     print "Printing traits for $char\r\n";
     print "@{$characters{$char}}";
     print "\r\n";
+}
+
+sub get_all_traits{
+    #gets all available character traits
+}
+
+sub get_characters_with_trait{
+    #gets all characters with a given trait
+}
+
+sub get_shared_traits{
+    #gets the shared traits between two given characters
 }
 
 while(!$exit){
