@@ -52,10 +52,17 @@ sub get_all_traits{
 
 sub get_characters_with_trait{
     #gets all characters with a given trait
+    print "Select a trait to display: ";
+    my $trait = <>;
+    chomp($trait);
+    print "Your select trait: $trait";
+    print "\r\n";
 }
 
 sub get_shared_traits{
     #gets the shared traits between two given characters
+    print "Not yet implemented";
+    print "\r\n";
 }
 
 while(!$exit){
@@ -84,5 +91,11 @@ while(!$exit){
     }
     elsif($command == 3){
         get_all_traits();
+    }
+    elsif($command == 4){
+	get_characters_with_trait();
+    }
+    elsif($command == 5){
+	get_shared_traits();
     }
 }
